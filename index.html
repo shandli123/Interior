@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            scroll-behavior: smooth;
+        }
+
+
+
+
+        section.banner {
+            padding: 100px;
+            position: relative;
+        }
+
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1000000;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+
+        .banner {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .banner .content {
+            position: relative;
+            max-width: 900px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .banner .content h2 {
+            color: rgb(245, 245, 245);
+            font-size: 5em;
+        }
+
+        .banner .content p {
+            color: rgb(255, 255, 255);
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .fitbg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+
+        }
+
+        nav {
+
+            background: linear-gradient(to right,#0960c3,rgb(0, 0, 56));
+
+            height: 60px;
+            width: 100%;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+
+
+        }
+
+        label.logo {
+
+            color: #fff;
+            font-size: 35px;
+            line-height: 60px;
+            padding: 0 100px;
+            font-weight: bold;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            cursor: pointer;
+
+        }
+
+
+        nav ul {
+
+            float: right;
+
+        }
+
+        nav ul li {
+            display: inline-block;
+            line-height: 60px;
+            margin: 0 5px;
+        }
+
+        nav ul li a {
+            color: rgb(255, 246, 246);
+            font-size: 17px;
+            padding: 7px 13px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a.active,
+        a:hover {
+            background: white;
+            color: #0082e6;
+            transition: 0.5s;
+            border: 2px solid black;
+
+        }
+
+        .checkbtn {
+            position: fixed;
+            font-size: 30px;
+            color: white;
+            float: right;
+            line-height: 60px;
+            cursor: pointer;
+            display: none;
+            right: 30px;
+            top: 3.4px;
+            transition: 1s;
+            z-index: -1;
+        }
+
+        #check {
+            display: none;
+
+
+        }
+
+        section.adv {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        section.adv h1 {
+            font-size: 2em;
+        }
+
+        .blocks {
+            margin: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .adv .blocks div {
+            position: relative;
+            margin: 20px;
+            width: 300px;
+            height: 300px;
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+            padding: 10px;
+            text-align: center;
+            font-size: 19px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-wrap: wrap;
+            transition: 0.2s;
+
+        }
+
+        .adv .blocks div:hover {
+            box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.2);
+
+        }
+
+        .adv .blocks div p {
+            position: absolute;
+            bottom: 13px;
+            padding: 7px;
+
+        }
+
+        .adv .blocks div i {
+            font-size: 62px;
+        }
+
+        #p1 {
+            color: rgb(209, 6, 97);
+        }
+
+        #p2 {
+            color: rgb(15, 179, 194);
+        }
+
+        #p3 {
+            color: rgb(11, 189, 79);
+        }
+
+        .about {
+            position: relative;
+            width: 100%;
+            padding: 50px;
+            background: linear-gradient(to right, rgb(0, 118, 173), rgb(1, 47, 73));
+            color: #fff;
+            min-height: 80vh;
+            margin: 0;
+            margin-bottom: 20px;
+
+        }
+
+        .circle {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .circle img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .circle.circle1 {
+            width: 500px;
+            height: 500px;
+            float: left;
+            border-radius: 50%;
+            margin: 20px;
+            shape-outside: circle();
+        }
+
+        .circle.circle2 {
+            width: 300px;
+            height: 300px;
+            float: right;
+            border-radius: 50%;
+            margin: 20px;
+            shape-outside: circle();
+        }
+
+        .about h2 {
+            color: #fff;
+            font-size: 4em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .works {
+
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            font-size: 2em;
+            margin: 20px 0;
+            color: white;
+            background: #191919;
+        }
+
+        .row1 {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            transition: 1s;
+            margin: 20px 0px;
+        }
+
+        .row1 div img {
+            width: 400px;
+            height: 400px;
+            box-sizing: border-box;
+             flex-wrap: wrap;
+        }
+
+        .row1 div {
+            transition: 1s;
+        }
+
+        .row1:hover div {
+            opacity: 0.2;
+        }
+
+        .row1 div:hover {
+            opacity: 1;
+        }
+
+        .row2 {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .row2 div img {
+            width: 400px;
+            height: 400px;
+            box-sizing: border-box;
+        }
+
+        .row2 div {
+            transition: 1s;
+        }
+
+        .row2:hover div {
+            opacity: 0.2;
+        }
+
+        .row2 div:hover {
+            opacity: 1;
+        }
+
+        @media(max-width: 952px) {
+            label.logo {
+                font-size: 30px;
+                padding-left: 50px;
+            }
+
+
+            nav ul li a {
+                font-size: 16px;
+
+            }
+        }
+        @media(max-width: 1219px){
+               .row1 div img {
+                width: 270px;
+                height: 270px;
+                box-sizing: border-box;
+                margin: 10px;
+            }
+               .row1 div img {
+                width: 270px;
+                height: 270px;
+                box-sizing: border-box;
+                margin: 10px;
+            }
+            }
+
+        
+
+        @media(max-width: 858px) {
+            .checkbtn {
+                display: block;
+            }
+
+            ul {
+                position: fixed;
+                width: 100%;
+                height: 60vh;
+                background: #2c3e50;
+                top: -100%;
+                left: 0px;
+                text-align: center;
+                transition: 1s;
+                z-index: -1;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 30px 0;
+                line-height: 30px;
+            }
+
+            nav ul li a {
+                font-size: 20px;
+            }
+
+
+
+            a:hover,
+            a.active {
+                background: white;
+                color: #0082e6;
+            }
+
+
+            #check:checked~ul {
+                top: 60px;
+
+            }
+
+            .banner .content h2 {
+                font-size: 2.5em;
+            }
+
+            .banner .content p {
+                font-size: 1em;
+            }
+
+            .blocks {
+                flex-direction: column;
+            }
+
+            .blocks div {
+                width: 100%;
+            }
+
+            .adv .blocks div p {
+                font-size: 17.6px;
+            }
+
+
+            .circle.circle1 {
+                width: 300px;
+                height: 300px;
+
+            }
+
+            .circle.circle2 {
+                width: 200px;
+                height: 200px;
+
+            }
+
+            .about h2 {
+                text-align: center;
+                color: #fff;
+                font-size: 2em;
+            }
+                .row1 {
+                flex-direction: column;
+            }
+
+            .row1 div img {
+                width: 370px;
+                height: 370px;
+                box-sizing: border-box;
+                margin: 10px;
+            }
+
+            .row2 {
+                flex-direction: column;
+            }
+
+            .row2 div img {
+                width: 370px;
+                height: 370px;
+                box-sizing: border-box;
+                margin: 10px;
+            }
+           
+
+            .works {
+                font-size: 24px;
+            }
+
+        }
+
+        @media(max-width: 473px) {
+            .circle.circle1 {
+                width: 200px;
+                height: 200px;
+
+            }
+
+            .circle.circle2 {
+                width: 100px;
+                height: 100px;
+
+            }
+
+            .about h2 {
+                text-align: center;
+                color: #fff;
+                font-size: 1em;
+            }
+
+              .feedback  .reviews div {
+                width: 250px;
+                height: 250px;
+                font-size: 14px;
+                padding:34px  7px  0 7px;
+            }
+
+            .adv .blocks div {
+                width: 200px;
+                height: 200px;
+            }
+
+            .adv .blocks div p {
+                font-size: 11px;
+            }
+
+            .adv .blocks div i {
+                font-size: 60px;
+            }
+            
+        }
+
+
+
+
+        @media(max-width: 378px) {
+            .circle.circle1 {
+                display: none;
+            }
+
+            .circle.circle2 {
+                display: none;
+            }
+
+            .about h2 {
+                text-align: center;
+                color: #fff;
+                font-size: 30px;
+            }
+
+            .about p {
+                text-align: center;
+                color: #fff;
+                font-size: 14px;
+            }
+
+         
+
+            .row1 {
+                flex-direction: column;
+            }
+
+            .row1 div img {
+                width: 200px;
+                height: 200px;
+                box-sizing: border-box;
+                margin: 10px;
+            }
+
+            .row2 {
+                flex-direction: column;
+            }
+                                                                                 
+            .row2 div img {
+                width: 200px;
+                height: 200px;
+                box-sizing: border-box;
+                margin: 10px;
+            }
+
+            .feedback .inputBox textarea {
+                width: 100px;
+                align-self: center;
+
+
+            }
+
+          .feedback  .reviews div {
+                width: 200px;
+                height: 200px;
+            }
+
+            .adv .blocks div {
+                width: 200px;
+                height: 200px;
+            }
+
+            .adv .blocks div p {
+                font-size: 12px;
+            }
+
+            .adv .blocks div i {
+                font-size: 40px;
+            }
+             
+
+
+        }
+
+        .contact {
+            position: relative;
+            min-height: 100vh;
+            padding: 50px 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-image: url("whitemode.jpg");
+            background-size: cover;
+            background-position: center auto;
+            margin-right: 0;
+        }
+
+        .contact .content {
+            max-width: 880px;
+            text-align: center;
+
+        }
+
+        .contact .content h1 {
+            font-size: 3.5em;
+            font-weight: bolder;
+            color: #191919;
+
+        }
+
+        .contact .content p {
+            font-weight: 300;
+            color: rgb(10, 10, 10);
+            font-weight: bolder;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+
+        }
+
+        .container .contactinfo {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container .contactinfo .box {
+            position: relative;
+            padding: 20px 0;
+            display: flex;
+            font-size: large;
+        }
+
+        .container .contactinfo .box .icon {
+            min-width: 60px;
+            height: 60px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 22px;
+            color: #063c7a;
+        }
+
+        .container .contactinfo .box .icon:hover {
+            background: rgb(56, 147, 221);
+        }
+
+        .container .contactinfo .box .text {
+            display: flex;
+            margin-left: 20px;
+            font-size: 16px;
+            color: #fff;
+            flex-direction: column;
+            font-weight: 300;
+        }
+
+        .container .contactinfo .box .text h3 {
+            font-weight: 1000;
+            color: rgb(3, 22, 131);
+
+        }
+
+        .contactform {
+            width: 40%;
+            padding: 40px;
+            background-color: #fff;
+        }
+
+        .contactform h2 {
+            font-size: 40px;
+            color: #333333;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .contactform .inputBox {
+            position: relative;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .contactform .inputBox input,
+        .contactform .inputBox textarea {
+            width: 100%;
+            padding: 5px 0;
+            font-size: 16px;
+            margin: 10px 0;
+            border: none;
+            border-bottom: 2px solid rgb(17, 104, 245);
+            outline: none;
+            resize: none;
+        }
+
+        .contactform .inputBox span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 5px 0;
+            font-size: 16px;
+            margin: 10px 0;
+            pointer-events: none;
+            transition: 0.5s;
+            color: #666666;
+        }
+
+        .contactform .inputBox input:focus~span,
+        .contactform .inputBox input:valid~span,
+        .contactform .inputBox textarea:focus~span,
+        .contactform .inputBox textarea:valid~span {
+            color: #e91e63;
+            font-size: 12px;
+            transform: translateY(-20px);
+
+        }
+
+        .contactform .inputBox input[type="submit"] {
+            width: 150px;
+            background-color: rgb(17, 78, 245);
+            color: white;
+            padding: 10px;
+            font-size: large;
+            box-shadow: 3px 3px rgb(90, 89, 89);
+            cursor: pointer;
+        }
+
+        .contactform .inputBox input[type="submit"]:focus {
+            box-shadow: none;
+            border: none;
+            font-size: 16px;
+        }
+
+        @media (max-width: 977px) {
+            .contact {
+                padding: 50px;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .container .contactinfo,
+            .contactform {
+                margin-bottom: 40px;
+                width: 100%;
+            }
+
+            .contact .content p {
+                font-size: 13px;
+            }
+
+            .contactform .inputBox input[type="submit"] {
+                width: 90px;
+            }
+
+            .contactform h2 {
+                font-size: 33px;
+            }
+            .container .contactinfo .box .text {
+            display: flex;
+            margin-left: 20px;
+            font-size: 11px;
+            color: #fff;
+            flex-direction: column;
+            font-weight: 300;
+        }
+
+            .reviews {
+                flex-direction: column;
+                margin: 20px 20px 20px 20px;
+            }
+
+
+            .feedback h1 {
+                font-size: 2em;
+                color: rgb(0, 0, 0);
+            }
+
+            .feedback h2 {
+                font-size: 2em;
+                color: rgb(8, 8, 8);
+            }
+
+
+
+        }
+
+        .feedback {
+            position: relative;
+            min-height: 100vh;
+            text-align: center;
+            margin: 20px 0;
+            background: url("dinnertable.jpg") rgba(0, 0, 0, 0.5);
+            background-blend-mode: color;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+
+        }
+       
+
+        .reviews {
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 50px 20px 20px 20px;
+
+        }
+
+        .reviews div {
+            
+            background: linear-gradient(to right, rgb(0, 118, 173), rgb(1, 47, 73));
+            padding: 50px;
+            width: 300px;
+            height: 300px;
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
+            text-align: center;
+            color: white;
+            border-top-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+                        
+
+        }
+        .reviews div:hover{
+              background: linear-gradient(to right, rgb(240, 185, 6), rgb(189, 10, 4));
+          }
+        .feedback h1 {
+            font-size: 2.7em;
+            color: rgb(0, 0, 0);
+        }
+
+        .feedback h2 {
+            font-size: 2em;
+            color: rgb(8, 8, 8);
+        }
+
+        .feedback .inputBox {
+            align-self: center;
+        }
+
+        .feedback .inputBox textarea {
+            position: relative;
+
+            width: 150px;
+            height: 200px;
+            padding: 5px 0;
+            font-size: 16px;
+
+            border: none;
+            border: 2px solid rgb(12, 12, 12);
+            outline: none;
+            resize: none;
+
+        }
+
+        .feedback .inputBox textarea:focus~span,
+        .feedback .inputBox textarea:valid~span {
+            color: #e91e63;
+            font-size: 12px;
+            transform: translateY(-20px);
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <input type="checkbox" name="" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo" for="">DECOR</label>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Our Works</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#feed">Feedback</a></li>
+        </ul>
+    </nav>
+    <section class="banner">
+        <img src="wall.jpg" class="fitbg" alt="">
+        <div class="content" id="headcon">
+            <h2>Decorating Your Homes </h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus porro atque, iure deleniti laborum
+                saepe dignissimos harum inventore laboriosam soluta. Saepe odio consectetur eligendi optio nobis
+                cupiditate laudantium quo voluptatibus velit, qui nam aperiam at reiciendis commodi </p>
+
+        </div>
+    </section>
+
+    <section class="adv">
+        <h1>Advantages Of Working With Us</h1>
+        <div class="blocks">
+            <div>
+                <i id="p1" class="fas fa-desktop"></i>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum soluta nisi eligendi tempore
+                    excepturi quod inventore optio. Fugiat odio id dolor ad quidem culpa, assumenda modi voluptas
+                    exercitationem cumque consequuntur maiores dolorem, adipisci numquam.</p>
+            </div>
+
+            <div>
+                <i id="p2" class="fas fa-shipping-fast"></i>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum soluta nisi eligendi tempore
+                    excepturi quod inventore optio. Fugiat odio id dolor ad quidem culpa, assumenda modi voluptas
+                    exercitationem cumque consequuntur maiores dolorem, adipisci numquam.</p>
+            </div>
+
+            <div>
+                <i id="p3" class="fas fa-palette"></i>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum soluta nisi eligendi tempore
+                    excepturi quod inventore optio. Fugiat odio id dolor ad quidem culpa, assumenda modi voluptas
+                    exercitationem cumque consequuntur maiores dolorem, adipisci numquam.</p>
+            </div>
+        </div>
+
+    </section>
+    <section class="about" id="about">
+
+        <div class="circle circle1">
+            <img src="spiral.jpg" alt="">
+        </div>
+        <div class="circle circle2">
+            <img src="valeria.jpg" alt="">
+        </div>
+        <div>
+
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus voluptatem eveniet doloremque possimus
+                soluta
+                aperiam accusamus labore assumenda tempore! Officia, sed in cupiditate quos nihil quas ullam sequi minus
+                repudiandae repellendus mollitia! Doloremque cum aperiam cupiditate atque, necessitatibus amet dolores
+                saepe
+                repudiandae ipsa porro pariatur ut beatae minus! Ea, rem consectetur. Blanditiis vitae voluptates, quam
+                ut est
+                reiciendis corrupti explicabo aut ex expedita dolorem in quae! Quasi incidunt, numquam quisquam sunt nam
+                minima
+                fugiat voluptas veritatis aut nostrum rem adipisci nobis iusto maiores repudiandae ratione, sapiente
+                culpa.
+                Pariatur, sequi obcaecati blanditiis vero assumenda modi. Voluptatum hic nihil voluptatem dicta
+                blanditiis iusto
+                delectus libero pariatur odio facere, quasi nulla, cum, recusandae adipisci explicabo? Minus quis quo
+                suscipit
+                sed. Officia, cumque. Quidem magni sint ducimus tempora deleniti officia recusandae quae. Quisquam a
+                suscipit
+                voluptate ab soluta molestias aspernatur dolor non numquam autem, quis commodi incidunt velit
+                perspiciatis modi
+                aut saepe quae quod voluptas eveniet neque tenetur nulla maxime quam? Id, tempore! Voluptatibus
+                consequatur ad
+                tenetur! Atque accusamus voluptates aperiam, laudantium expedita ab a porro praesentium natus voluptate
+                minima
+                soluta deleniti repellat officiis, quasi esse possimus, ipsum quibusdam? Totam, sed recusandae. Ducimus
+                magni,
+                quaerat ex maiores nulla repellat dolore, autem error id tempore possimus rerum quae dignissimos quidem
+                optio
+                asperiores consectetur excepturi. Voluptatem voluptatibus odio laudantium consequuntur, obcaecati
+                asperiores
+                reprehenderit, nulla eos inventore dolorem quasi soluta expedita, reiciendis vitae error illum enim vel
+                animi
+                autem est! Architecto consectetur alias quis sunt ipsa, vel assumenda voluptatem aspernatur expedita!
+                Quibusdam,
+                reprehenderit! Sequi nisi non saepe! Ut fuga officia cumque quisquam beatae, similique cupiditate
+                exercitationem
+                eum repudiandae! Expedita laudantium libero debitis deserunt, voluptatibus possimus animi ipsum ea, eius
+                atque
+                dicta? Suscipit nemo nulla pariatur accusamus dolores cupiditate, maxime voluptatem possimus eligendi
+                quaerat.
+                Nisi fugit, similique nemo illum, cum fugiat ab incidunt aperiam ex numquam officiis molestiae. Lorem
+                ipsum dolor sit amet consectetur, adipisicing elit. Culpa pariatur laudantium blanditiis voluptatem
+                nostrum delectus maxime facilis, fuga quibusdam modi obcaecati possimus nam.</p>
+        </div>
+    </section>
+    <section class="works" id="work">
+        <h1>Our Works</h1>
+        <div class="row1">
+            <div><img src="bedroom.jpg" alt=""></div>
+            <div><img src="green.jpg" alt=""></div>
+            <div><img src="home.jpg" alt=""></div>
+        </div>
+        <div class="row2">
+            <div><img src="hall.jpg" alt=""></div>
+            <div><img src="kitchen.jpg" alt=""></div>
+            <div><img src="livingroom.jpg" alt=""></div>
+        </div>
+
+    </section>
+    <section class="contact" id="contact">
+        <div class="content">
+            <h1>Contact Us</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, at tempore vero quam quo praesentium saepe
+                esse, eos rem obcaecati doloribus, ex ab? Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
+                minima sunt vitae, doloremque modi numquam qui aliquid voluptas sapiente, eius id fuga natus in debitis
+                ea corrupti voluptatum exercitationem eos.</p>
+        </div>
+        <div class="container">
+            <div class="contactinfo">
+                <div class="box">
+                    <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>Address</h3>
+                        <p>J-6/54 Sushant Golf City,<br>Sultanpur Road,Lucknow <br>226030 </p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p>shandlikamal248@gmail.com </p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p>9674527645-IND </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="contactform">
+                <form>
+                    <h2>Send Message</h2>
+                    <div class="inputBox">
+                        <input type="text" name="" required='required'>
+                        <span> Name</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="email" name="" required='required'>
+                        <span> Email</span>
+                    </div>
+                    <div class="inputBox">
+                        <textarea required="required"></textarea>
+                        <span> Type a Message</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" value="Send">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+    <section class="feedback" id="feed">
+        <h1>Listen What Our Customers Has To Say!!</h1>
+        <div class="reviews">
+
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos corporis nihil soluta molestias ducimus
+                distinctio laudantium vitae cum alias suscipit quae quos fugiat officia magnam quo, ab facilis
+                consequuntur itaque cumque laboriosam libero illum.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos corporis nihil soluta molestias ducimus
+                distinctio laudantium vitae cum alias suscipit quae quos fugiat officia magnam quo, ab facilis
+                consequuntur itaque cumque laboriosam libero illum.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos corporis nihil soluta molestias ducimus
+                distinctio laudantium vitae cum alias suscipit quae quos fugiat officia magnam quo, ab facilis
+                consequuntur itaque cumque laboriosam libero illum.</div>
+        </div>
+        <h2>Give Us Your Feedback</h2>
+        <div class="inputBox">
+            <textarea placeholder=" Type Your Experience"></textarea>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>
